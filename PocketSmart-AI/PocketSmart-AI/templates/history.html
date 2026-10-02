@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}History - PocketSmart AI{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="shell"><span class="eyebrow">SAVED PLANS</span><h1>Recommendation history</h1><p>Review plans you generated while signed in.</p></div></section><section class="section shell">{% if records %}<div class="history-list">{% for item in records %}<a class="history-item" href="/recommendations-details/{{ item.id }}"><div><span class="badge">{{ item.category }}</span><h3>{{ item.category }} recommendation #{{ item.id }}</h3></div><time>{{ item.created_at.strftime('%d %b %Y, %I:%M %p') }}</time></a>{% endfor %}</div>{% else %}<div class="empty">Your history is empty.</div>{% endif %}</section>
+{% endblock %}

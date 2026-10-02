@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}PocketSmart AI - Smart Budget Planning{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="shell hero-inner">
+    <span class="eyebrow">AI-POWERED BUDGET ASSISTANT</span>
+    <h1>Plan smarter. Spend with clarity.</h1>
+    <p>PocketSmart AI creates budget-aware suggestions for home interiors, parties, and jewelry, with optional Gemini-powered personalization.</p>
+    <div class="hero-actions">
+      <a class="btn" href="{% if user %}/dashboard{% else %}/register{% endif %}">Get Started</a>
+      <a class="btn btn-ghost" href="#features">Explore Planners</a>
+    </div>
+  </div>
+</section>
+<section id="features" class="section shell">
+  <div class="section-head"><span class="eyebrow dark">THREE SMART PLANNERS</span><h2>One assistant for everyday budgets</h2><p>Enter your needs and budget, then get a structured plan with estimated allocations and platform search links.</p></div>
+  <div class="card-grid three">
+    <article class="feature-card"><div class="icon">⌂</div><h3>Home Interior</h3><p>Plan furniture, decor, lighting, storage, and room essentials without losing sight of the total budget.</p><a href="{% if user %}/planner/home{% else %}/login{% endif %}">Open planner →</a></article>
+    <article class="feature-card"><div class="icon">✦</div><h3>Party Planning</h3><p>Allocate spending across food, venue, decorations, and entertainment based on guest count and event type.</p><a href="{% if user %}/planner/party{% else %}/login{% endif %}">Open planner →</a></article>
+    <article class="feature-card"><div class="icon">◇</div><h3>Jewelry Match</h3><p>Get occasion-based jewelry ideas, with optional outfit-image analysis when Gemini is configured.</p><a href="{% if user %}/planner/jewelry{% else %}/login{% endif %}">Open planner →</a></article>
+  </div>
+</section>
+<section class="section soft"><div class="shell split"><div><span class="eyebrow dark">HOW IT WORKS</span><h2>From budget to plan in three steps</h2></div><div class="steps"><div><b>1</b><span>Choose a planner and enter your budget.</span></div><div><b>2</b><span>Add preferences, quantities, guest count, or an outfit image.</span></div><div><b>3</b><span>Review recommendations, estimated spend, and remaining budget.</span></div></div></div></section>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PocketSmart AI - smart budget planning and recommendations">
+  <title>{% block title %}PocketSmart AI{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+  <script defer src="{{ url_for('static', path='/js/app.js') }}"></script>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav shell">
+    <a class="brand" href="/"><span class="brand-mark">P</span>PocketSmart</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" data-nav-toggle>☰</button>
+    <div class="nav-links" data-nav-links>
+      <a href="/#features">Features</a>
+      <a href="/testimonials">Testimonials</a>
+      {% if user %}
+        <a href="/dashboard">Dashboard</a>
+        <a href="/history">History</a>
+        <a class="btn btn-small" href="/logout">Logout</a>
+      {% else %}
+        <a href="/login">Sign in</a>
+        <a class="btn btn-small" href="/register">Get Started</a>
+      {% endif %}
+    </div>
+  </nav>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="footer">
+  <div class="shell footer-grid">
+    <div><strong>PocketSmart AI</strong><p>Budget-friendly, fast, personalized planning.</p></div>
+    <div><a href="/">Home</a><a href="/testimonials">Testimonials</a><a href="/health">Health</a></div>
+  </div>
+  <p class="copyright">© 2026 PocketSmart AI. Recommendation prices are estimates; verify current listings before purchasing.</p>
+</footer>
+</body>
+</html>

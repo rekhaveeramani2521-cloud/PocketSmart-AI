@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - PocketSmart AI{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="shell"><span class="eyebrow">YOUR DASHBOARD</span><h1>Hello, {{ user.name }}</h1><p>Choose a planner or continue from your recent recommendation history.</p></div></section>
+<section class="section shell"><div class="card-grid three"><a class="planner-card" href="/planner/home"><div class="icon">⌂</div><h3>Home Interior Planner</h3><p>Rooms, furniture, decor and lighting.</p></a><a class="planner-card" href="/planner/party"><div class="icon">✦</div><h3>Party Planner</h3><p>Food, venue, decor and entertainment.</p></a><a class="planner-card" href="/planner/jewelry"><div class="icon">◇</div><h3>Jewelry Planner</h3><p>Occasion and outfit-aware suggestions.</p></a></div></section>
+<section class="section soft"><div class="shell"><div class="section-row"><h2>Recent recommendations</h2><a href="/history">View all →</a></div>{% if recent %}<div class="history-list">{% for item in recent %}<a class="history-item" href="/recommendations-details/{{ item.id }}"><div><span class="badge">{{ item.category }}</span><h3>{{ item.category }} plan #{{ item.id }}</h3></div><time>{{ item.created_at.strftime('%d %b %Y, %I:%M %p') }}</time></a>{% endfor %}</div>{% else %}<div class="empty">No plans yet. Choose a planner above to create your first recommendation.</div>{% endif %}</div></section>
+{% endblock %}
